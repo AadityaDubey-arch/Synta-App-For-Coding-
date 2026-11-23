@@ -1,0 +1,18 @@
+# Synta
+Your code. Your pace. Your AI tutor. A local Windows Python learning platform by Syntax Shift.
+
+## Launch the Windows download
+Extract the complete ZIP. Open **Synta Website.exe** and keep its window open. It opens a loopback URL in your browser. Create a local account, then choose your learning level.
+
+The default tutor uses **qwen2.5-coder:7b**. Install Ollama and run `ollama pull qwen2.5-coder:7b` once with internet access. Start Ollama before requesting help. For smaller computers, install `qwen2.5-coder:3b` and open **Start with 3B.cmd**. You can also set `SYNTA_MODEL` to another installed local coding model. The ZIP includes Node, Monaco and the Python runtime. Ollama and its model weights are separate. Lessons, account access and browser Python execution work without Ollama.
+
+## Practice and progress
+Choose Intermediate to take a 25-question assessment, or use Guided demo for a three-question sample. The dashboard tracks full assessment results, exercise completions, saved projects, runs and tutoring requests. Demo assessment results are separate. Projects and progress live under the Windows user's AppData/Roaming/Synta directory. Chats stay in the open workspace.
+
+The optional Windows overlay source is in the desktop folder. Start the website launcher first, then launch the overlay and press Ctrl+Alt+F8 in an editor. Click Open website to send the snapshot. The Desktop Preview page illustrates the interaction. Browser Python runs in an isolated worker with the bundled standard library.
+
+## Run from source
+Use Node 24.2 or newer with node:sqlite. In this directory run `npm ci`, then `npm run dev`. Open the local address Next prints. To make a production build, run `npm run build`; `npm start` serves that build on loopback. Dependency installation and model download require internet. Local inference uses the Next backend and Ollama on the same PC. Public hosting would require a separately secured inference service.
+
+To close the packaged site, press Ctrl+C in the launch window. Saved progress persists after closing.
+

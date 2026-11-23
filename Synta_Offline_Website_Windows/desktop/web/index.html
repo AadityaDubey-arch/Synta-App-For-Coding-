@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synta | Python tutor</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">⌘</span> Synta</div>
+    <span class="workspace">Tutor workspace</span>
+    <div class="account" id="account" hidden>
+      <span id="username"></span><button class="quiet" id="logout">Sign out</button>
+    </div>
+  </header>
+  <main>
+    <p id="loading" role="status">Opening Synta…</p>
+    <section id="auth" class="auth" hidden aria-labelledby="auth-title">
+      <div class="auth-intro">
+        <p class="label">YOUR PYTHON TUTOR</p>
+        <h1>Find your next step.</h1>
+        <p>Bring over a snapshot from the Synta overlay or ask a Python question. Ollama runs the tutor on this computer.</p>
+        <div class="motif" aria-hidden="true"><span>{</span><span>·</span><span>}</span></div>
+      </div>
+      <form id="login">
+        <h2 id="auth-title">Sign in</h2>
+        <p id="auth-copy"></p>
+        <label for="name">Username</label>
+        <input id="name" autocomplete="username" maxlength="64" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" maxlength="256" required>
+        <button id="auth-submit" class="primary" type="submit">Sign in</button>
+        <p id="auth-error" class="error" role="alert"></p>
+      </form>
+    </section>
+    <section id="desk" hidden aria-labelledby="desk-title">
+      <div class="intro">
+        <div><p class="label">TUTOR WORKSPACE</p><h1 id="desk-title">Python tutor</h1></div>
+        <button id="reset" class="quiet">New chat</button>
+      </div>
+      <div class="grid">
+        <section class="conversation" aria-label="Tutor conversation">
+          <div class="conversation-head"><h2>Conversation</h2><span>Ollama</span></div>
+          <div id="log" class="log" role="log" aria-label="Chat messages">
+            <div id="welcome" class="welcome">
+              <span class="mark" aria-hidden="true">⌘</span>
+              <h2>What are you working on?</h2>
+              <p>Ask a Python question, paste a snippet, or bring code over from the overlay.</p>
+              <div class="prompts">
+                <button class="quiet" data-prompt="How do I read a Python traceback?">Read a traceback</button>
+                <button class="quiet" data-prompt="Can you explain how a Python for loop works?">Understand a loop</button>
+              </div>
+            </div>
+          </div>
+          <form id="composer">
+            <label for="question">Message the tutor</label>
+            <textarea id="question" rows="3" maxlength="4000" required placeholder="Describe what you expected and what happened…"></textarea>
+            <div class="composer-foot"><p id="chat-status" role="status"></p><button class="primary" id="send" type="submit">Send message</button></div>
+          </form>
+        </section>
+        <aside class="context" aria-label="Tutor settings">
+          <h2>Editor context</h2>
+          <p id="snapshot">No snapshot attached</p>
+          <button id="detach" class="quiet" hidden>Remove snapshot</button>
+          <p class="muted" id="overlay-help">Check your code with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>, then click <strong>Open website</strong> in the overlay.</p>
+          <p id="context-error" class="error" role="alert"></p>
+          <hr>
+          <h2>Ollama model</h2>
+          <p id="model" class="model"></p>
+          <p class="muted">Runs on this computer.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

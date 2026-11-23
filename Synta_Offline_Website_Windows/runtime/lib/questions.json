@@ -1,0 +1,392 @@
+[
+  {
+    "topic": "syntax_types",
+    "prompt": "What does this print?",
+    "code": "x = \"5\" + \"3\"\nprint(x)",
+    "options": [
+      "8",
+      "53",
+      "5 3",
+      "An error"
+    ],
+    "answer": 1,
+    "explain": "Both values are strings, so + joins them: '5' + '3' is '53'."
+  },
+  {
+    "topic": "syntax_types",
+    "prompt": "What does this print?",
+    "code": "print(7 // 2, 7 % 2)",
+    "options": [
+      "3.5 1",
+      "3 1",
+      "4 1",
+      "3 0"
+    ],
+    "answer": 1,
+    "explain": "// is whole-number division (7 // 2 = 3) and % is the remainder (7 % 2 = 1)."
+  },
+  {
+    "topic": "syntax_types",
+    "prompt": "This program should check whether the user is 18 or older, but it crashes. Which change fixes it?",
+    "code": "age = input(\"Age: \")\nif age >= 18:\n    print(\"adult\")",
+    "options": [
+      "Change line 1 to age = int(input(\"Age: \"))",
+      "Change line 2 to if age => 18:",
+      "Change line 2 to if age >= \"18\":",
+      "Change line 3 to print(age)"
+    ],
+    "answer": 0,
+    "explain": "input() always returns text (a str). int() turns it into a number you can compare with 18."
+  },
+  {
+    "topic": "syntax_types",
+    "prompt": "What does this print?",
+    "code": "x = 5\ny = 5.0\nprint(x == y, type(x) == type(y))",
+    "options": [
+      "True True",
+      "True False",
+      "False False",
+      "False True"
+    ],
+    "answer": 1,
+    "explain": "5 == 5.0 is True (same value), but one is an int and the other a float, so the types differ."
+  },
+  {
+    "topic": "syntax_types",
+    "prompt": "This code raises an error. Why?",
+    "code": "name = \"Ada\"\nname[0] = \"E\"",
+    "options": [
+      "Strings cannot be changed in place (they are immutable)",
+      "name is a constant",
+      "Index 0 does not exist",
+      "\"E\" needs single quotes"
+    ],
+    "answer": 0,
+    "explain": "You cannot assign to part of a string. Build a new string instead, e.g. 'E' + name[1:]."
+  },
+  {
+    "topic": "control_flow",
+    "prompt": "What does this print?",
+    "code": "for i in range(3):\n    print(i, end=\" \")",
+    "options": [
+      "1 2 3",
+      "0 1 2",
+      "0 1 2 3",
+      "1 2"
+    ],
+    "answer": 1,
+    "explain": "range(3) produces 0, 1, 2. It starts at 0 and stops before 3."
+  },
+  {
+    "topic": "control_flow",
+    "prompt": "What does this print?",
+    "code": "n = 10\nwhile n > 0:\n    n -= 4\nprint(n)",
+    "options": [
+      "0",
+      "2",
+      "-2",
+      "-4"
+    ],
+    "answer": 2,
+    "explain": "n goes 10, 6, 2, then -2. The loop stops once n > 0 is False, and -2 is printed."
+  },
+  {
+    "topic": "control_flow",
+    "prompt": "This should print the numbers 1 to 5 but stops at 4. What fixes it?",
+    "code": "for i in range(1, 5):\n    print(i)",
+    "options": [
+      "range(1, 6)",
+      "range(0, 5)",
+      "range(5)",
+      "range(1, 4)"
+    ],
+    "answer": 0,
+    "explain": "range(start, stop) stops BEFORE stop, so use 6 to include 5."
+  },
+  {
+    "topic": "control_flow",
+    "prompt": "What does this print?",
+    "code": "x = 7\nif x > 5:\n    print(\"A\")\nelif x > 3:\n    print(\"B\")\nelse:\n    print(\"C\")",
+    "options": [
+      "A",
+      "B",
+      "A then B",
+      "C"
+    ],
+    "answer": 0,
+    "explain": "Python runs only the first branch whose condition is True. 7 > 5 is True, so it prints A and skips the rest."
+  },
+  {
+    "topic": "control_flow",
+    "prompt": "What does this print?",
+    "code": "for i in range(5):\n    if i == 3:\n        continue\n    if i == 4:\n        break\n    print(i, end=\" \")",
+    "options": [
+      "0 1 2 3",
+      "0 1 2",
+      "0 1 2 4",
+      "0 1 2 3 4"
+    ],
+    "answer": 1,
+    "explain": "continue skips 3 (nothing is printed), and break stops the loop at 4 before printing it."
+  },
+  {
+    "topic": "functions_scope",
+    "prompt": "What does this print?",
+    "code": "def add(a, b):\n    a + b\nprint(add(2, 3))",
+    "options": [
+      "5",
+      "None",
+      "An error",
+      "23"
+    ],
+    "answer": 1,
+    "explain": "The function computes a + b but never returns it, so it returns None."
+  },
+  {
+    "topic": "functions_scope",
+    "prompt": "What does this print?",
+    "code": "x = 10\ndef f():\n    x = 5\n    return x\nf()\nprint(x)",
+    "options": [
+      "5",
+      "10",
+      "An error",
+      "None"
+    ],
+    "answer": 1,
+    "explain": "The x inside f is a separate local variable. The outer x is still 10."
+  },
+  {
+    "topic": "functions_scope",
+    "prompt": "This crashes with AttributeError: 'NoneType' object has no attribute 'upper'. Why?",
+    "code": "def greet(name):\n    print(\"Hi\", name)\nmsg = greet(\"Sam\")\nprint(msg.upper())",
+    "options": [
+      "greet prints but returns nothing, so msg is None",
+      "name must be written in uppercase",
+      "print cannot be used inside a function",
+      "upper() needs an argument"
+    ],
+    "answer": 0,
+    "explain": "A function without a return statement gives back None. Return the text instead of printing it."
+  },
+  {
+    "topic": "functions_scope",
+    "prompt": "What does this print?",
+    "code": "def f(n=2):\n    return n * 3\nprint(f(), f(4))",
+    "options": [
+      "6 12",
+      "2 4",
+      "6 4",
+      "12 12"
+    ],
+    "answer": 0,
+    "explain": "With no argument n defaults to 2, so f() is 6. f(4) is 12."
+  },
+  {
+    "topic": "functions_scope",
+    "prompt": "You write a function average(nums). What should it do with the answer so other code can use it?",
+    "code": "",
+    "options": [
+      "Print it and return nothing",
+      "Return it",
+      "Store it in a global variable named result",
+      "Ask the user to type it in"
+    ],
+    "answer": 1,
+    "explain": "Returning a value lets the caller print it, store it or use it in more calculations."
+  },
+  {
+    "topic": "data_structures",
+    "prompt": "What does this print?",
+    "code": "nums = [3, 1, 2]\nnums.append(4)\nprint(nums[-1], len(nums))",
+    "options": [
+      "4 4",
+      "3 4",
+      "4 3",
+      "2 4"
+    ],
+    "answer": 0,
+    "explain": "append adds 4 at the end, so nums[-1] is 4 and the length is 4."
+  },
+  {
+    "topic": "data_structures",
+    "prompt": "What does this print?",
+    "code": "d = {\"a\": 1}\nd[\"b\"] = 2\nprint(sorted(d))",
+    "options": [
+      "['a', 'b']",
+      "[1, 2]",
+      "{'a': 1, 'b': 2}",
+      "['b', 'a']"
+    ],
+    "answer": 0,
+    "explain": "sorted() on a dictionary sorts its keys and returns a list."
+  },
+  {
+    "topic": "data_structures",
+    "prompt": "What does this print?",
+    "code": "t = (1, 2, 3)\nprint(t[1:])",
+    "options": [
+      "(1, 2)",
+      "(2, 3)",
+      "[2, 3]",
+      "2"
+    ],
+    "answer": 1,
+    "explain": "t[1:] means 'from index 1 to the end', and slicing a tuple gives a tuple."
+  },
+  {
+    "topic": "data_structures",
+    "prompt": "You need to count how many times each word appears in a text. Which structure fits best?",
+    "code": "",
+    "options": [
+      "A set of words",
+      "A dictionary from word to count",
+      "A tuple of words",
+      "One long string"
+    ],
+    "answer": 1,
+    "explain": "A dictionary maps each word (key) to its count (value)."
+  },
+  {
+    "topic": "data_structures",
+    "prompt": "What does this print?",
+    "code": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)",
+    "options": [
+      "[1, 2]",
+      "[1, 2, 3]",
+      "[3]",
+      "An error"
+    ],
+    "answer": 1,
+    "explain": "b = a does not copy the list. Both names point at the same list, so appending through b changes a."
+  },
+  {
+    "topic": "debugging",
+    "prompt": "You see IndexError: list index out of range on print(items[3]). What should you check first?",
+    "code": "",
+    "options": [
+      "How many items the list holds and which index positions exist",
+      "Whether Python is installed",
+      "Whether the variable name is lowercase",
+      "Whether the line ends with a colon"
+    ],
+    "answer": 0,
+    "explain": "A list with 3 items has indexes 0, 1 and 2. Check len(items) and the index you used."
+  },
+  {
+    "topic": "debugging",
+    "prompt": "NameError: name 'totl' is not defined. The most likely cause is:",
+    "code": "",
+    "options": [
+      "A misspelled variable name",
+      "A missing colon",
+      "An empty list",
+      "Wrong indentation"
+    ],
+    "answer": 0,
+    "explain": "NameError means Python has never seen that name. Look for a typo (total vs totl)."
+  },
+  {
+    "topic": "debugging",
+    "prompt": "This gives a SyntaxError. What is the fix?",
+    "code": "x = 5\nif x = 5:\n    print(\"five\")",
+    "options": [
+      "if x == 5:",
+      "if x === 5:",
+      "if x =! 5:",
+      "if x is = 5:"
+    ],
+    "answer": 0,
+    "explain": "A single = stores a value; == compares two values."
+  },
+  {
+    "topic": "debugging",
+    "prompt": "Your program runs without errors but prints the wrong total. What is the best first debugging step?",
+    "code": "",
+    "options": [
+      "Print the running total inside the loop to see where it goes wrong",
+      "Delete the program and start again",
+      "Wrap everything in try/except and ignore errors",
+      "Run it again and hope"
+    ],
+    "answer": 0,
+    "explain": "Printing intermediate values shows exactly where reality and your expectation diverge."
+  },
+  {
+    "topic": "debugging",
+    "prompt": "'Age: ' + 5 raises TypeError: can only concatenate str (not 'int') to str. Which fix works?",
+    "code": "",
+    "options": [
+      "'Age: ' + str(5)",
+      "'Age: ' - 5",
+      "'Age: ' + [5]",
+      "int('Age: ') + 5"
+    ],
+    "answer": 0,
+    "explain": "Join text with text: convert the number with str() first."
+  },
+  {
+    "topic": "problem_solving",
+    "prompt": "To find the largest number in a list without using max(), a good plan is:",
+    "code": "",
+    "options": [
+      "Keep a variable for the biggest value seen so far and update it while looping",
+      "Add all the numbers together",
+      "Count how many numbers there are",
+      "Reverse the list and take the last item"
+    ],
+    "answer": 0,
+    "explain": "Compare each item with the best so far and keep the larger one."
+  },
+  {
+    "topic": "problem_solving",
+    "prompt": "What does this print?",
+    "code": "result = 1\nfor n in range(1, 5):\n    result *= n\nprint(result)",
+    "options": [
+      "10",
+      "24",
+      "120",
+      "4"
+    ],
+    "answer": 1,
+    "explain": "It multiplies 1 x 1 x 2 x 3 x 4 = 24 (that is 4 factorial)."
+  },
+  {
+    "topic": "problem_solving",
+    "prompt": "sum(nums) / len(nums) computes an average. Which input would crash it?",
+    "code": "",
+    "options": [
+      "An empty list",
+      "A list with negative numbers",
+      "A list with one item",
+      "A list of floats"
+    ],
+    "answer": 0,
+    "explain": "len([]) is 0, and dividing by zero raises ZeroDivisionError. Always think about the empty case."
+  },
+  {
+    "topic": "problem_solving",
+    "prompt": "Which expression reverses the string s?",
+    "code": "",
+    "options": [
+      "s.reverse()",
+      "s[::-1]",
+      "reversed(s)",
+      "s[-1]"
+    ],
+    "answer": 1,
+    "explain": "Slicing with a step of -1 returns the reversed string. Strings have no reverse() method, and reversed(s) returns an iterator, not a string."
+  },
+  {
+    "topic": "problem_solving",
+    "prompt": "To test whether n > 1 is prime, which plan is correct?",
+    "code": "",
+    "options": [
+      "Check that n is odd",
+      "Check that n is not divisible by 10",
+      "Try dividing by every number from 2 up to the square root of n; if none divides evenly, it is prime",
+      "Check that n has two digits"
+    ],
+    "answer": 2,
+    "explain": "A prime has no divisor between 2 and its square root. The other checks give wrong answers (9 is odd but not prime)."
+  }
+]

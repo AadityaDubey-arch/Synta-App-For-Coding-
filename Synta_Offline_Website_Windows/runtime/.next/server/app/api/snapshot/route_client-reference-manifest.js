@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/snapshot/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"C:\\Users\\Aaditya Dubey\\Documents\\ChatGPT\\Pink_Monster\\synta\\app\\api\\snapshot\\route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};
